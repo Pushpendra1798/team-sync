@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { currentLoggedInEmployee } from "../../features/auth/state/auth/authAction";
 import PublicRoute from "../protectedRoutes/PublicRoute";
 import ProtectedRoute from "../protectedRoutes/ProtectedRoute";
-import { commonRoutes } from "./CommonRoutes";
+import { commonRoutes } from "./commonRoutes";
 import RoleBaseRoute from "../protectedRoutes/RoleBaseRoute";
 import { adminRoutes } from "./adminRoutes";
 import { employeeRoutes } from "./employeeRoutes";
