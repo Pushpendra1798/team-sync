@@ -5,10 +5,11 @@ import EmployeeHeader from "../components/EmployeeHeader";
 import EmployeeStats from "../components/EmployeeStats";
 import EmployeeFilters from "../components/EmployeeFilters";
 import EmployeeTable from "../components/EmployeeTable";
-import AddEmployeeModal from "../components/AddEmployeeModal";
 import EmployeeDetailsModal from "../components/EmployeeDetailsModal";
+import { useNavigate } from "react-router";
 
 const Employee = () => {
+    const navigate = useNavigate();
     // 1. Fetch employees from your existing API hook
     const { data, isPending, isError, error } = useEmployees();
 
@@ -22,7 +23,6 @@ const Employee = () => {
     const [role, setRole] = useState("all");
     const [status, setStatus] = useState("all");
 
-    const [showAddModal, setShowAddModal] = useState(false);
     const [selectedEmployee, setSelectedEmployee] = useState(null);
 
     // 4. Get departments dynamically from API data
@@ -136,7 +136,7 @@ if (isPending) {
         <main className="min-h-screen bg-(--bg-main) p-4 text-(--text-primary) sm:p-6 lg:p-8">
             <div className="mx-auto max-w-[1600px]">
                 <EmployeeHeader
-                    onAdd={() => setShowAddModal(true)}
+                    onAdd={() => navigate("/home/employee/add-employee")}
                     onExport={handleExport}
                 />
 
@@ -161,15 +161,6 @@ if (isPending) {
                     onView={setSelectedEmployee}
                 />
 
-                {showAddModal && (
-                    <AddEmployeeModal
-                        onClose={() => setShowAddModal(false)}
-                        onAdd={(employee) => {
-                            // Connect your create-employee mutation here.
-                            console.log("Employee submitted:", employee);
-                        }}
-                    />
-                )}
 
                 {selectedEmployee && (
                     <EmployeeDetailsModal

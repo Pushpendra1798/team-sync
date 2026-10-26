@@ -36,7 +36,7 @@ const EmployeeHeader = ({ onAdd, onExport }) => {
                 <button
                     type="button"
                     onClick={onAdd}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-(--primary) px-5 py-3 text-sm font-semibold text-(--text-primary) hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-(--accent)/40 active:scale-[0.98] transition-opacity hover:opacity-90"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-(--primary) px-5 py-3 text-sm font-semibold text-white transition hover:brightness-90"
                 >
                     <Plus size={18} />
                     Add Employee
